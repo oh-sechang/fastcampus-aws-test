@@ -1,0 +1,40 @@
+<html>
+    <body>
+        <table style="border: 1px solid black;">
+            <thead>
+                <tr>
+                    <th style="width: 30%;">주문시간</th>
+                    <th style="width: 30%;">음식</th>
+                    <th style="width: 30%;">배달 예상 시간</th>
+                    <th style="width: 10%;">배달 완료 여부</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for order in order_list %}
+                <tr>
+                    <td>{{ order.order_date }}</td>
+                    <td style="border: 1px solid black;">
+                        {% for food in order.orderfood_set.all %}
+                            <h5>{{ food.food_name }}</h5>
+                        {% endfor %}
+                    </td>
+                    <td >
+                        {% if order.estimated_time == -1 %}
+                            미정 
+                        {% else %}
+                            {{ order.estimated_time }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if order.delivery_finish == 0 %}
+                            배송중
+                        {% else %}
+                            완료 
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>        
+        </table>
+    </body>
+</html>
