@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-&nsx0f!uz*-fec47lr^!ti1ch^gklhh7))grjg0wbh^0!+80t=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['3.35.220.7', '13.124.12.245',
-                 'fastcampus-app-elb-110884644.ap-northeast-2.elb.amazonaws.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,6 +40,7 @@ INSTALLED_APPS = [
     'order',
     'boss',
     'delivery',
+    'user',
     'rest_framework'
 ]
 
